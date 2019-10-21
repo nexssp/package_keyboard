@@ -1,0 +1,5 @@
+name: Keyboard
+description: Keyboard emulator
+debug: true
+files:
+  - name: src/type.ahk
