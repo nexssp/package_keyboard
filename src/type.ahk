@@ -5,7 +5,7 @@
 #Warn
 SendMode Input
 SetWorkingDir %A_ScriptDir% 
-#Include ../../3rdPartyLibraries/AutoHotkey-JSON/JSON.ahk
+#Include ../3rdPartyLibraries/AutoHotkey-JSON/JSON.ahk
 ; STDIN
 STDIN := FileOpen("*", "r")
 NexssStdin := STDIN.Read()
@@ -13,15 +13,16 @@ NexssStdout := JSON.load(NexssStdin)
 
 ; Handling Keyboard
 ParamType := NexssStdout.type
+Enter := NexssStdout.enter
 
 if(ParamType){
     ; Write type param out
     Send, %ParamType%
-    Send, {Enter}
+    if(Enter){
+        Send, {Enter}
+    }
     Return
 }
-
-
 ; Modify Data
 ; NexssStdout.ahkOutput := "Hello from AHK! " . A_AhkVersion
 NexssStdout.Keyboard := "ok"
