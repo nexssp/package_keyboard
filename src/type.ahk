@@ -21,12 +21,11 @@ if(ParamType){
     if(Enter){
         Send, {Enter}
     }
-    Return
 }
 ; Modify Data
 ; NexssStdout.ahkOutput := "Hello from AHK! " . A_AhkVersion
-NexssStdout.Keyboard := "ok"
-
+NexssStdout.Delete("enter")
+NexssStdout.Delete("type")
 ; STDOUT
 NexssStdout := JSON.Dump(NexssStdout)
 STDOUT := FileOpen("*", "w")
